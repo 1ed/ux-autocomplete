@@ -31,6 +31,9 @@ class default_1 extends Controller {
     }
     initialize() {
         if (this.requiresLiveIgnore()) {
+            if (this.element.hasAttribute('data-live-id')) {
+                return;
+            }
             this.element.setAttribute('data-live-ignore', '');
             if (this.element.id) {
                 const label = document.querySelector(`label[for="${this.element.id}"]`);
